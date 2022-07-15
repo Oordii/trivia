@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener('DOMContentLoaded',function(){
+
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click' , function() {
+                    correct.style.backgroundColor = 'green';
+                    document.getElementById('feedback1').innerHTML = 'Correct!';
+                });
+                let incorrects = document.querySelectorAll('.incorrect');
+                for(let i = 0; i < 3; i++)
+                {
+                    incorrects[i].addEventListener('click',function() {
+                    incorrects[i].style.backgroundColor = 'red';
+                    document.getElementById('feedback1').innerHTML = 'Incorrect!';
+                    });
+                };
+
+                document.getElementById('check').addEventListener('click', function(){
+                    let input = document.querySelector('input');
+                    if (input.value === 'yes' || input.value === 'sure' || input.value === 'yeah'){
+                        input.style.backgroundColor = 'green';
+                        document.getElementById('feedback2').innerHTML = 'Correct!';
+                    } else {
+                        input.style.backgroundColor = 'red';
+                        document.getElementById('feedback2').innerHTML = 'Incorrect!';
+                    };
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3> Aboba?</h3>
+
+                <button class="correct">Aboba</button>
+                <button class="incorrect">Floppa</button>
+                <button class="incorrect">Amogus</button>
+                <button class="incorrect">Sus</button>
+
+                <p id ="feedback1"></p1>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Do you want some beer?</h3>
+
+                <input type = "text"></input>
+                <button id = "check">Check</button>
+
+                <P id = "feedback2"></P>
+            </div>
+        </div>
+    </body>
+</html>
